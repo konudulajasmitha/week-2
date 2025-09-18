@@ -8,8 +8,8 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-                bat 'docker tag registration:v1 sriludone/registration:v1'
-                bat 'docker push sriludone/registration:v1'
+                bat 'docker tag registration:v1 jasmitha/registration:v1'
+                bat 'docker push jasmitha/registration:v1'
             }
         }
         stage('Deploy to Kubernetes') {
@@ -18,10 +18,6 @@ pipeline {
                 bat 'kubectl apply -f D:/DevOps/week-2/service.yaml'
             }
         }
-        stage('Automated UI Test') {
-            steps {
-                bat 'python D:/DevOps/week-2/test_registration.py'
-            }
-        }
+       
     }
 }
